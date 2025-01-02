@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de Vehículos{% endblock %}
+
+{% block content %}
+<h2>Listado de Vehículos</h2>
+
+<h3>Bajo (0 - 10,000)</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vehiculo in vehiculos_bajo %}
+        <tr>
+            <td>{{ vehiculo.marca }}</td>
+            <td>{{ vehiculo.modelo }}</td>
+            <td>{{ vehiculo.categoria }}</td>
+            <td>{{ vehiculo.precio }}</td>
+            <td>
+                <a href="{% url 'vehiculo:eliminar' vehiculo.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay vehículos en esta categoría.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Medio (10,001 - 30,000)</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vehiculo in vehiculos_medio %}
+        <tr>
+            <td>{{ vehiculo.marca }}</td>
+            <td>{{ vehiculo.modelo }}</td>
+            <td>{{ vehiculo.categoria }}</td>
+            <td>{{ vehiculo.precio }}</td>
+            <td>
+                <a href="{% url 'vehiculo:eliminar' vehiculo.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay vehículos en esta categoría.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Alto (30,001+)</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vehiculo in vehiculos_alto %}
+        <tr>
+            <td>{{ vehiculo.marca }}</td>
+            <td>{{ vehiculo.modelo }}</td>
+            <td>{{ vehiculo.categoria }}</td>
+            <td>{{ vehiculo.precio }}</td>
+            <td>
+                <a href="{% url 'vehiculo:eliminar' vehiculo.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay vehículos en esta categoría.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
